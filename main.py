@@ -2,7 +2,6 @@ import pygame, sys
 import random
 import numpy as np
 from pygame.locals import *
-from Camera import Camera
 from FileOI import *
 
 def displacementOfMouse(base,current):
@@ -45,7 +44,6 @@ def pixelToAngleConversion(pixels):
     return pixels*2*np.pi/pixelPerRound
 
 def print_text(font, x, y, text, color=(0, 0, 0)):
-    """打印字体函数"""
     img_text = font.render(text, True, color)
     screen.blit(img_text, (x, y))
 
@@ -71,9 +69,9 @@ def array3ToTuple(array):
 
 if __name__ == "__main__":
     pygame.init()
-    # 字体
+    # Font
     font1 = pygame.font.SysFont("arial", 18)
-    # 鼠标的移动位置
+    # mouse displacement
     """mouse_x = mouse_y = 0
     move_x = move_y = 0
     mouse_down = mouse_up = 0
@@ -147,6 +145,8 @@ if __name__ == "__main__":
 
             pygame.draw.line(screen, line.color, endpoint0, endpoint1, line.width)
 
+
+        #Draw the axis (Not important)
         coordinateSystemCenter = (300, 200)
         for line in linesDirectionSign:
             x0,y0,x1,y1=line.projectedTo(cameraMatrix)
